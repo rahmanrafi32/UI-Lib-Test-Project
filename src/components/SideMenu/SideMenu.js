@@ -34,7 +34,7 @@ const NavLinks = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  marginTop:7
+  marginTop:5
 });
 
 const Menu = styled("div")({
@@ -42,7 +42,6 @@ const Menu = styled("div")({
   alignItems: "center",
   flexDirection: "column",
   color: "#fff",
-  marginTop: 20,
 });
 
 const SideMenu = () => {
