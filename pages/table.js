@@ -1,8 +1,13 @@
+import { styled } from "@material-ui/core";
+
 const table = () => {
+    const MainDiv = styled("div")({
+        padding: "0 30px",
+      });
     return (
-        <div>
+        <MainDiv>
             <h1>Showing table</h1>
-        </div>
+        </MainDiv>
     );
 };
 

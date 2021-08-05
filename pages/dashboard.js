@@ -1,6 +1,9 @@
 import { Grid, styled } from "@material-ui/core";
 import Image from "next/image";
-import userIcon from "../src/assets/icons/icon 6.svg";
+import expenseIcon from "../src/assets/icons/expense.svg";
+import orderIcon from "../src/assets/icons/orders.svg";
+import salesIcon from "../src/assets/icons/sales.svg";
+import userIcon from "../src/assets/icons/user.svg";
 
 const MainDiv = styled("div")({
   padding: "0 30px",
@@ -11,31 +14,34 @@ const Card = styled("div")({
   height: 131,
   borderRadius: 24,
   backgroundColor: "#fff",
-  margin: "0 20px",
+});
+
+const IconDiv = styled("div")({
+  margin: "29px 9px 29px 20px",
+  borderRadius: 18,
+  width: 36,
+  height: 71,
+  display: "flex",
+  justifyContent: "center",
 });
 
 const CardDetails = styled("div")({
   display: "flex",
+  alignContent: "center",
 });
+
 const dashboard = () => {
   return (
     <MainDiv>
       <Grid container>
-        <Grid item>
+        <Grid item md={3} lg={3}>
           <Card>
             <CardDetails>
-              <div
-                style={{
-                  borderRadius: 18,
-                  backgroundColor: "#F2F1FE",
-                  width: 36,
-                  height: 71,
-                }}
-              >
+              <IconDiv sx={{ backgroundColor: "#F2F1FE" }}>
                 <Image src={userIcon} alt="icon" />
-              </div>
-              <div>
-                <p style={{}}>
+              </IconDiv>
+              <div style={{ marginTop: 20, fontWeight: 400 }}>
+                <p>
                   New Leds
                   <br />
                   <span
@@ -48,24 +54,17 @@ const dashboard = () => {
             </CardDetails>
           </Card>
         </Grid>
-        <Grid item>
+        <Grid item md={3} lg={3}>
           <Card>
             <CardDetails>
-              <div
-                style={{
-                  borderRadius: 18,
-                  backgroundColor: "#F2F1FE",
-                  width: 36,
-                  height: 71,
-                }}
-              >
+              <IconDiv sx={{ backgroundColor: "#C5DBFF" }}>
                 <Image
-                  src={userIcon}
+                  src={salesIcon}
                   alt="icon"
                   style={{ display: "flex", justifyContent: "center" }}
                 />
-              </div>
-              <div>
+              </IconDiv>
+              <div style={{ marginTop: 20 }}>
                 <p>
                   Sales
                   <br />
@@ -79,20 +78,13 @@ const dashboard = () => {
             </CardDetails>
           </Card>
         </Grid>
-        <Grid item>
+        <Grid item md={3} lg={3}>
           <Card>
             <CardDetails>
-              <div
-                style={{
-                  borderRadius: 18,
-                  backgroundColor: "#F2F1FE",
-                  width: 36,
-                  height: 71,
-                }}
-              >
-                <Image src={userIcon} alt="icon" />
-              </div>
-              <div>
+              <IconDiv sx={{ backgroundColor: "#BCDDB3" }}>
+                <Image src={orderIcon} alt="icon" />
+              </IconDiv>
+              <div style={{ marginTop: 20 }}>
                 <p>
                   Orders
                   <br />
@@ -106,20 +98,13 @@ const dashboard = () => {
             </CardDetails>
           </Card>
         </Grid>
-        <Grid item>
+        <Grid item md={3} lg={3}>
           <Card>
             <CardDetails>
-              <div
-                style={{
-                  borderRadius: 18,
-                  backgroundColor: "#F2F1FE",
-                  width: 36,
-                  height: 71,
-                }}
-              >
-                <Image src={userIcon} alt="icon" />
-              </div>
-              <div>
+              <IconDiv sx={{ backgroundColor: "#FFF6E0" }}>
+                <Image src={expenseIcon} alt="icon" />
+              </IconDiv>
+              <div style={{ marginTop: 20 }}>
                 <p>
                   Expense
                   <br />

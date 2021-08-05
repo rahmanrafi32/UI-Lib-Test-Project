@@ -1,18 +1,26 @@
-import { Badge, Grid, MenuItem } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import { styled } from "@material-ui/core/styles";
-import { NotificationsNone } from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import Image from "next/image";
 import React from "react";
+import NotificationIcon from "../../assets/icons/notification.svg";
+import userAvatar from "../../assets/images/avatar.png";
 
 const Nav = styled("div")({
   height: 120,
-  padding:'0 30px',
+  padding: "0 30px",
   display: "flex",
   alignItems: "center",
   background: "inherit",
+});
+
+const NotificationGrid = styled(Grid)({
+  display: "flex",
+  justifyContent: "center",
+  marginRight: 15,
 });
 
 const Search = styled("div")({
@@ -45,10 +53,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const NavImage = styled(Image)({
+  borderRadius: 20,
+});
+
 const Navbar = () => {
   return (
     <Nav>
-      <Grid container style={{}}>
+      <Grid container>
         <Grid item>
           <IconButton
             size="large"
@@ -71,11 +83,12 @@ const Navbar = () => {
           </Search>
         </Grid>
         <Grid item sm></Grid>
-        <MenuItem>
-          <Badge badgeContent={3} color="primary">
-            <NotificationsNone />
-          </Badge>
-        </MenuItem>
+        <NotificationGrid item >
+          <Image src={NotificationIcon} alt="icon" />
+        </NotificationGrid>
+        <Grid item>
+          <NavImage src={userAvatar} />
+        </Grid>
       </Grid>
     </Nav>
   );
