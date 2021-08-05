@@ -34,7 +34,7 @@ const NavLinks = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  marginTop: 5,
+  marginTop:7
 });
 
 const Menu = styled("div")({
@@ -42,6 +42,7 @@ const Menu = styled("div")({
   alignItems: "center",
   flexDirection: "column",
   color: "#fff",
+  marginTop: 20,
 });
 
 const SideMenu = () => {
@@ -57,106 +58,50 @@ const SideMenu = () => {
           </NavLinks>
           <Link href="/dashboard">Dashboard</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconTable} alt="icon" />
           </NavLinks>
-          <Link href="/dashboard">Table</Link>
+          <Link href="/table">Table</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconFile} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">File</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconPaper} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">Paper</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconTouch} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">Touch</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconAcc} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">Account</Link>
         </NavLinks>
 
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconWeather} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">Weather</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconGallery} alt="icon" />
           </NavLinks>
           <Link href="/dashboard">Gallery</Link>
         </NavLinks>
-        <NavLinks
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            margin: "10px 0",
-          }}
-        >
+        <NavLinks>
           <NavLinks>
             <Image src={IconVault} alt="icon" />
           </NavLinks>

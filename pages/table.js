@@ -6,7 +6,7 @@ const table = () => {
       });
     return (
         <MainDiv>
-            <h1>Showing table</h1>
+            <h4>This is table page dummy content</h4>
         </MainDiv>
     );
 };
