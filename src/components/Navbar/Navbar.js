@@ -10,7 +10,7 @@ import NotificationIcon from "../../assets/icons/notification.svg";
 import userAvatar from "../../assets/images/avatar.png";
 
 const Nav = styled("div")({
-  height: 120,
+  height: '15vh',
   padding: "0 30px",
   display: "flex",
   alignItems: "center",

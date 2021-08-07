@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import SideMenu from "../SideMenu/SideMenu";
 
 const MainDiv = styled("div")({
-  paddingLeft: 120,
+  paddingLeft: '7vw',
   background: "#F1F3F4",
   height: "100vh",
 });
