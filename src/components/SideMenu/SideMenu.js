@@ -28,8 +28,8 @@ const NavLinks = styled("div")({
   alignItems: "center",
   justifyContent: "center",
   margin:'5px 0',
-  height: 64,
-  width: 80,
+  height: '7vh',
+  width: '5vw',
   borderRadius: 5,
   "&:hover": {
     backgroundColor: "#7D48B4",
