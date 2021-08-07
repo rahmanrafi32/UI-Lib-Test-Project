@@ -1,16 +1,8 @@
 import { styled } from "@material-ui/core";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import IconPaper from "../../assets/icons/Combined Shape 2.svg";
-import IconAcc from "../../assets/icons/Combined Shape 3.svg";
-import IconWeather from "../../assets/icons/Combined Shape 4.svg";
-import IconVault from "../../assets/icons/Combined Shape 5.svg";
-import IconGallery from "../../assets/icons/Combined Shape 6.svg";
-import IconTouch from "../../assets/icons/Combined Shape(1).svg";
-import IconFile from "../../assets/icons/Combined Shape-1.svg";
-import IconTable from "../../assets/icons/Combined Shape.svg";
-import IconDash from "../../assets/icons/Group 25.svg";
+import React, { useState } from "react";
+import SidebarItems from "./SidebarConfig";
 
 const SideBar = styled("div")({
   display: "flex",
@@ -34,7 +26,14 @@ const NavLinks = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  marginTop:5
+  justifyContent: "center",
+  margin:'5px 0',
+  height: 64,
+  width: 80,
+  borderRadius: 5,
+  "&:hover": {
+    backgroundColor: "#7D48B4",
+  }
 });
 
 const Menu = styled("div")({
@@ -44,68 +43,51 @@ const Menu = styled("div")({
   color: "#fff",
 });
 
+const LinkTitle = styled("div")({
+  fontSize: 14,
+  lineHeight: 1.5,
+});
+
 const SideMenu = () => {
+  const [active, setActive] = useState({
+    activeClass: null,
+    items: SidebarItems,
+  });
+
+  const toggleActive = (index) => {
+    setActive({ ...active, activeClass: active.items[index] });
+    console.log(active.activeClass);
+  };
+
+  const setActiveStyle = (index) => {
+    if (active.items[index] === active.activeClass) return "block";
+    else return "none";
+  };
+
+  const activeBackground = (index) => {
+    if (active.items[index] === active.activeClass) return "#7D48B4";
+    else return "#663399";
+  };
+
   return (
     <SideBar>
       <Title>
         <Link href="/">Gull</Link>
       </Title>
       <Menu>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconDash} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Dashboard</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconTable} alt="icon" />
-          </NavLinks>
-          <Link href="/table">Table</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconFile} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">File</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconPaper} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Paper</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconTouch} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Touch</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconAcc} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Account</Link>
-        </NavLinks>
-
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconWeather} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Weather</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconGallery} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Gallery</Link>
-        </NavLinks>
-        <NavLinks>
-          <NavLinks>
-            <Image src={IconVault} alt="icon" />
-          </NavLinks>
-          <Link href="/dashboard">Vault</Link>
-        </NavLinks>
+        {SidebarItems.map((item, index) => (
+          <Link href={item.path} key={index} passHref>
+            <NavLinks
+              onClick={() => toggleActive(index)}
+              sx={{ backgroundColor: activeBackground(index) }}
+            >
+              <Image src={item.icon} alt="icon" />
+              <LinkTitle sx={{ display: setActiveStyle(index) }}>
+                {item.title}
+              </LinkTitle>
+            </NavLinks>
+          </Link>
+        ))}
       </Menu>
     </SideBar>
   );

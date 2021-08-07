@@ -1,9 +1,6 @@
 import { Grid, styled } from "@material-ui/core";
 import Image from "next/image";
-import expenseIcon from "../src/assets/icons/expense.svg";
-import orderIcon from "../src/assets/icons/orders.svg";
-import salesIcon from "../src/assets/icons/sales.svg";
-import userIcon from "../src/assets/icons/user.svg";
+import dashboardConfig from "../src/components/DashboardConfig";
 
 const MainDiv = styled("div")({
   padding: "0 30px",
@@ -25,99 +22,49 @@ const IconDiv = styled("div")({
   justifyContent: "center",
 });
 
-const CardDetails = styled("div")({
+const CardItems = styled("div")({
   display: "flex",
   alignContent: "center",
+});
+
+const CardDetails = styled("div")({
+  marginTop: 20,
+  fontWeight: 400,
+});
+
+const Span = styled("span")({
+  fontSize: 30,
+  fontWeight: 700,
+});
+
+const Title = styled("p")({
+  color: "#43454D",
 });
 
 const dashboard = () => {
   return (
     <MainDiv>
       <Grid container>
-        <Grid item md={3} lg={3}>
-          <Card>
-            <CardDetails>
-              <IconDiv sx={{ backgroundColor: "#F2F1FE" }}>
-                <Image src={userIcon} alt="icon" />
-              </IconDiv>
-              <div style={{ marginTop: 20, fontWeight: 400 }}>
-                <p>
-                  New Leds
-                  <br />
-                  <span
-                    style={{ color: "#663399", fontSize: 30, fontWeight: 700 }}
-                  >
-                    205
-                  </span>
-                </p>
-              </div>
-            </CardDetails>
-          </Card>
-        </Grid>
-        <Grid item md={3} lg={3}>
-          <Card>
-            <CardDetails>
-              <IconDiv sx={{ backgroundColor: "#C5DBFF" }}>
-                <Image
-                  src={salesIcon}
-                  alt="icon"
-                  style={{ display: "flex", justifyContent: "center" }}
-                />
-              </IconDiv>
-              <div style={{ marginTop: 20 }}>
-                <p>
-                  Sales
-                  <br />
-                  <span
-                    style={{ color: "#3981F7", fontSize: 30, fontWeight: 700 }}
-                  >
-                    $4201
-                  </span>
-                </p>
-              </div>
-            </CardDetails>
-          </Card>
-        </Grid>
-        <Grid item md={3} lg={3}>
-          <Card>
-            <CardDetails>
-              <IconDiv sx={{ backgroundColor: "#BCDDB3" }}>
-                <Image src={orderIcon} alt="icon" />
-              </IconDiv>
-              <div style={{ marginTop: 20 }}>
-                <p>
-                  Orders
-                  <br />
-                  <span
-                    style={{ color: "#5DAE49", fontSize: 30, fontWeight: 700 }}
-                  >
-                    80
-                  </span>
-                </p>
-              </div>
-            </CardDetails>
-          </Card>
-        </Grid>
-        <Grid item md={3} lg={3}>
-          <Card>
-            <CardDetails>
-              <IconDiv sx={{ backgroundColor: "#FFF6E0" }}>
-                <Image src={expenseIcon} alt="icon" />
-              </IconDiv>
-              <div style={{ marginTop: 20 }}>
-                <p>
-                  Expense
-                  <br />
-                  <span
-                    style={{ color: "#FFC620", fontSize: 30, fontWeight: 700 }}
-                  >
-                    $1200
-                  </span>
-                </p>
-              </div>
-            </CardDetails>
-          </Card>
-        </Grid>
+        {dashboardConfig.map((item, index) => (
+          <Grid item md={3} lg={3} key={index}>
+            <Card>
+              <CardItems>
+                <IconDiv sx={{ backgroundColor: `${item.backgroundColor}` }}>
+                  <Image src={item.icon} alt="icon" />
+                </IconDiv>
+                <CardDetails>
+                  <Title>
+                    {item.title}
+                    <br />
+                    <Span sx={{ color: `${item.textColor}` }}>
+                      {item.quantity}
+                    </Span>
+                  </Title>
+                </CardDetails>
+              </CardItems>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </MainDiv>
   );
